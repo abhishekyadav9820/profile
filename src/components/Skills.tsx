@@ -5,25 +5,25 @@ const skillCategories = [
   {
     title: "Frontend",
     icon: Globe,
-    skills: ["HTML5", "CSS3", "Bootstrap 5", "React.js (Hooks)", "TypeScript", "JavaScript", "jQuery", "AJAX"],
+    skills: ["HTML5", "CSS3", "Bootstrap 5", "Ant Design", "React.js (Hooks)", "TypeScript", "JavaScript", "jQuery", "REST API"],
     color: "from-blue-500 to-cyan-500",
   },
   {
     title: "Backend",
     icon: Server,
-    skills: ["Laravel", "CakePHP", "Core Java", "REST API"],
+    skills: ["Laravel-12", "PHP", "REST API", "API Integration"],
     color: "from-green-500 to-emerald-500",
   },
   {
     title: "Database",
     icon: Database,
-    skills: ["MySQL", "SQL"],
+    skills: ["MySQL", "PostgreSQL", "MongoDB","Sql"],
     color: "from-orange-500 to-amber-500",
   },
   {
     title: "Tools",
     icon: Wrench,
-    skills: ["Ubuntu 24", "Docker", "Linux", "Vesta Panel", "Bitbucket", "Jira", "GitHub", "Postman", "VS Code"],
+    skills: ["Ubuntu 24", "Docker", "Linux","GitHub", "Vesta Panel", "Bitbucket", "Jira", "GitLab", "Postman", "VS Code"],
     color: "from-purple-500 to-pink-500",
   },
   {
@@ -36,7 +36,7 @@ const skillCategories = [
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-20 bg-background relative overflow-hidden">
+    <section id="skills" className="py-12 lg:py-20 bg-background relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
@@ -56,25 +56,33 @@ const Skills = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {skillCategories.map((category, index) => (
             <ScrollAnimation key={category.title} direction="scale" delay={index * 0.1}>
-              <div className="bg-card rounded-xl p-6 border border-border hover:border-primary/50 transition-all duration-500 hover:shadow-xl hover:shadow-primary/5 group h-full">
-                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${category.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                  <category.icon className="w-7 h-7 text-primary-foreground" />
-                </div>
-                <h3 className="text-xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
-                  {category.title}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-3 py-1.5 bg-secondary/10 text-foreground rounded-full text-sm font-medium border border-border hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 cursor-default"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
+            <div className="bg-card rounded-xl p-6 border border-border hover:border-primary/50 transition-all duration-500 hover:shadow-xl hover:shadow-primary/5 group h-full">          
+              <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${category.color} flex items-center justify-center mb-4 
+                mx-auto md:mx-0 group-hover:scale-110 transition-transform duration-300`} >
+                <category.icon className="w-7 h-7 text-primary-foreground" />
               </div>
-            </ScrollAnimation>
+          
+              {/* Title */}
+              <h3 className="text-xl font-bold text-foreground mb-4 
+                text-center md:text-left group-hover:text-primary transition-colors">
+                {category.title}
+              </h3>
+          
+              {/* Skills */}
+              <div className="flex flex-wrap gap-2 
+                justify-center md:justify-start">
+                {category.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="px-3 py-1.5 bg-secondary/10 text-foreground rounded-full text-sm font-medium border border-border 
+                    hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 cursor-default"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </ScrollAnimation>
           ))}
         </div>
 

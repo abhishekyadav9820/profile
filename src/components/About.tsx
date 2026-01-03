@@ -5,7 +5,7 @@ import ScrollAnimation from "./ScrollAnimation";
 
 const About = () => {
   return (
-    <section id="about" className="py-20 bg-card relative overflow-hidden">
+    <section id="about" className="lg:py-20 py-12 bg-card relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute top-0 left-0 w-full h-full">
         <div className="absolute top-20 right-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
@@ -53,7 +53,7 @@ const About = () => {
                 I'm Abhishek Vidhinath Yadav
               </h3>
               <p className="text-primary font-medium text-base sm:text-lg mb-6">
-                Full Stack Developer & Software Engineer
+               Software Engineer & Full Stack Developer
               </p>
               <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-6">
                 As a passionate Software Engineer with over <span className="text-primary font-semibold">4+ years</span> of hands-on experience, I specialize in <span className="text-foreground">Ubuntu Server environments</span> and <span className="text-foreground">Docker containerization</span>, alongside modern web technologies like <span className="text-foreground">Laravel, React.js, and MySQL</span>.

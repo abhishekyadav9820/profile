@@ -63,7 +63,7 @@ const Hero = () => {
                 Software Engineer & Full Stack Developer
               </p>
               <p className="text-sm sm:text-base text-muted-foreground mb-8">
-                4+ Years Experience • Ubuntu 24.04 • Docker • Laravel • React.js
+                4+ Years Experience • Laravel • PHP • React.js • Linux
               </p>
             </motion.div>
 
@@ -72,7 +72,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.6 }}
-              className="flex items-center gap-4 justify-center lg:justify-start mb-8"
+              className="flex items-center gap-4 justify-center lg:justify-start lg:mb-8 mb-4"
             >
               <a
                 href="https://github.com/"
@@ -102,11 +102,12 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.6 }}
+              className="hidden lg:block"
             >
               <Button
                 size="lg"
                 onClick={scrollToAbout}
-                className="px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                className="px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 "
               >
                 Explore My Work
                 <ArrowDown className="ml-2 w-5 h-5 animate-bounce" />
@@ -119,7 +120,7 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="flex justify-center order-1 lg:order-2"
+            className="flex justify-center order-1 lg:order-2 mt-5 lg:mt-0"
           >
             <div className="relative">
               {/* Rotating Border */}
@@ -164,7 +165,7 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 0.6 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:block"
       >
         <div className="flex flex-col items-center gap-2">
           <span className="text-muted-foreground text-sm">Scroll Down</span>
