@@ -54,7 +54,7 @@ const Navbar = () => {
 
   return (
     <>
-      {/* ================= NAVBAR ================= */}
+      {/* ================= NAVBAR (DESKTOP) ================= */}
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -70,7 +70,9 @@ const Navbar = () => {
             {/* Logo */}
             <div className="flex items-center gap-2">
               <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold">A</span>
+                <span className="text-primary-foreground font-bold text-lg">
+                  A
+                </span>
               </div>
               <span className="font-bold text-lg text-foreground">
                 Abhishek
@@ -97,14 +99,34 @@ const Navbar = () => {
         </div>
       </motion.nav>
 
-      {/* ================= MOBILE FAB ================= */}
-      <Button
-        size="icon"
-        className="md:hidden fixed bottom-6 right-6 z-[60] w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-xl"
-        onClick={() => setIsOpen((prev) => !prev)}
+      {/* ================= FLOATING ACTION BUTTON ================= */}
+      <motion.div
+        className="md:hidden fixed bottom-6 right-6 z-[60]"
+        animate={!isOpen ? { y: [0, -6, 0] } : {}}
+        transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
       >
-        {isOpen ? <X /> : <Menu />}
-      </Button>
+        {/* Pulse Ring */}
+        {!isOpen && (
+          <motion.span
+            className="absolute inset-0 rounded-full bg-primary/30"
+            initial={{ scale: 1, opacity: 0.6 }}
+            animate={{ scale: 1.8, opacity: 0 }}
+            transition={{
+              duration: 1.8,
+              repeat: Infinity,
+              ease: "easeOut",
+            }}
+          />
+        )}
+
+        <Button
+          size="icon"
+          className="relative w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-xl"
+          onClick={() => setIsOpen((prev) => !prev)}
+        >
+          {isOpen ? <X /> : <Menu />}
+        </Button>
+      </motion.div>
 
       {/* ================= RADIAL MENU ================= */}
       <AnimatePresence>
@@ -119,7 +141,7 @@ const Navbar = () => {
               onClick={() => setIsOpen(false)}
             />
 
-            {/* Menu */}
+            {/* Circular Menu */}
             <div className="fixed inset-0 z-[55] md:hidden flex items-center justify-center pointer-events-none">
               <div className="relative w-64 h-64 pointer-events-auto">
                 {navItems.map((item, index) => {
@@ -139,7 +161,14 @@ const Navbar = () => {
                         y: radius * Math.sin(angle),
                       }}
                       exit={{ scale: 0, opacity: 0 }}
-                      transition={{ type: "spring", stiffness: 260, damping: 18 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 220,
+                        damping: 16,
+                        delay: index * 0.05,
+                      }}
+                      whileHover={{ scale: 1.15 }}
+                      whileTap={{ scale: 0.95 }}
                       onClick={() => scrollToSection(item.href)}
                       className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
                         w-14 h-14 rounded-full shadow-lg flex items-center justify-center
